@@ -1,0 +1,7 @@
+[client]
+database=citool
+user=admin
+password=Admin@123
+host=db
+port=3306
+default-character-set=utf8

@@ -1,0 +1,6 @@
+STATUS_CHOICES = [
+    ('PENDING', 'PENDING'),
+    ('RUNNING', 'RUNNING'),
+    ('COMPLETED', 'COMPLETED'),
+    ('ERROR', 'ERROR'),
+]

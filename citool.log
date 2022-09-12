@@ -1,0 +1,270 @@
+2022-09-09 23:34:31,512 - INFO - autoreload - Watching for file changes with StatReloader
+2022-09-09 23:36:24,127 - INFO - autoreload - Watching for file changes with StatReloader
+2022-09-09 23:36:34,264 - WARNING - log - Not Found: /
+2022-09-09 23:36:34,531 - WARNING - log - Not Found: /favicon.ico
+2022-09-09 23:37:55,961 - INFO - dashboard - ====== Getting overview
+2022-09-09 23:37:56,236 - ERROR - log - Internal Server Error: /api/scan/recent
+Traceback (most recent call last):
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'dast_task.filename' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\views\generic\base.py", line 73, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\scanning\views\dashboard.py", line 22, in get
+    dast_tasks = self.get_newest_records(DastTask, "created_at", "DAST")
+  File "D:\Workspace\ci-tools-master\backend\scanning\views\dashboard.py", line 38, in get_newest_records
+    data.extend([
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 287, in __iter__
+    self._fetch_all()
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 1303, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1154, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'dast_task.filename' in 'field list'")
+2022-09-09 23:37:56,241 - ERROR - log - Internal Server Error: /api/scan/overview
+Traceback (most recent call last):
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'cloc_task.compared_branch1' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\views\generic\base.py", line 73, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\scanning\views\dashboard.py", line 60, in get
+    number_of_cloc = get_number_cloc(cloc_data)
+  File "D:\Workspace\ci-tools-master\backend\scanning\views\dashboard.py", line 105, in get_number_cloc
+    for cloc in obj:
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 287, in __iter__
+    self._fetch_all()
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 1303, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1154, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'cloc_task.compared_branch1' in 'field list'")
+2022-09-09 23:38:27,888 - INFO - dashboard - ====== Getting overview
+2022-09-09 23:38:27,978 - ERROR - log - Internal Server Error: /api/scan/recent
+Traceback (most recent call last):
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'dast_task.filename' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\views\generic\base.py", line 73, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\scanning\views\dashboard.py", line 22, in get
+    dast_tasks = self.get_newest_records(DastTask, "created_at", "DAST")
+  File "D:\Workspace\ci-tools-master\backend\scanning\views\dashboard.py", line 38, in get_newest_records
+    data.extend([
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 287, in __iter__
+    self._fetch_all()
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 1303, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1154, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'dast_task.filename' in 'field list'")
+2022-09-09 23:38:28,012 - ERROR - log - Internal Server Error: /api/scan/overview
+Traceback (most recent call last):
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+MySQLdb.OperationalError: (1054, "Unknown column 'cloc_task.compared_branch1' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\core\handlers\base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\views\generic\base.py", line 73, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\rest_framework\views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\Workspace\ci-tools-master\backend\scanning\views\dashboard.py", line 60, in get
+    number_of_cloc = get_number_cloc(cloc_data)
+  File "D:\Workspace\ci-tools-master\backend\scanning\views\dashboard.py", line 105, in get_number_cloc
+    for cloc in obj:
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 287, in __iter__
+    self._fetch_all()
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 1303, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1154, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\django\db\backends\mysql\base.py", line 73, in execute
+    return self.cursor.execute(query, args)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 206, in execute
+    res = self._query(query)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\cursors.py", line 319, in _query
+    db.query(q)
+  File "D:\Workspace\ci-tools-master\backend\venv\lib\site-packages\MySQLdb\connections.py", line 254, in query
+    _mysql.connection.query(self, query)
+django.db.utils.OperationalError: (1054, "Unknown column 'cloc_task.compared_branch1' in 'field list'")
